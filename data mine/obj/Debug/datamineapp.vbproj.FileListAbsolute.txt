@@ -1,0 +1,10 @@
+C:\Users\DP\Desktop\data mine\datamineapp\bin\Debug\datamineapp.exe.config
+C:\Users\DP\Desktop\data mine\datamineapp\bin\Debug\datamineapp.exe
+C:\Users\DP\Desktop\data mine\datamineapp\bin\Debug\datamineapp.pdb
+C:\Users\DP\Desktop\data mine\datamineapp\bin\Debug\datamineapp.xml
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.Resources.resources
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.vbproj.GenerateResource.Cache
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.exe
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.xml
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.pdb
+C:\Users\DP\Desktop\data mine\datamineapp\obj\Debug\datamineapp.vbprojResolveAssemblyReference.cache

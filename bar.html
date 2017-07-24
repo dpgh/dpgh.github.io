@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bechdel Test - Grafico a barre</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .options-control {
+            padding:3px 3px; height:unset;display:inline;
+        }
+        .tooltip {
+    position: absolute;
+    z-index: 2000;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    opacity: 0;
+    box-shadow: 5px 5px 2px #a0a0a0;
+    border: 1px solid #e6e6e6;
+    pointer-events: none;
+    font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+    .tooltip ul, .tooltip li {
+        padding: 0px;
+        list-style: none;
+    }
+.highlight {
+    fill: #ffc4eb;
+    background-color: #ffc4eb;
+    cursor:pointer;
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Bechdel Test</a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Top Navigation: Left Menu -->
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+            </ul>
+            <!-- Top Navigation: Right Menu -->
+            <ul class="nav navbar-right navbar-top-links">
+                <!--<li class="dropdown navbar-inverse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+            <!-- Sidebar -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            <li>
+                                <a  class="active" href="bar.html"><i class="fa fa-bar-chart-o fa-fw"></i> Grafico a barre</a>
+                            </li>
+                            <li>
+                                <a href="scatter.html"><i class="fa fa-dot-circle-o fa-fw"></i> Grafico di dispersione</a>
+                            </li>
+                            <li>
+                                <a href="table.html"><i class="fa fa-table fa-fw"></i> Dati</a>
+                            </li>
+                            <li>
+                                <a href="info.html"><i class="fa fa-info fa-fw"></i> Informazioni</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Grafico a barre</h1>
+                    </div>
+                </div>
+                <!-- ... Your content goes here ... -->
+                <div class="row">
+                    <div id="content" class="col-lg-8">
+                        <div id="container" class="panel panel-default">
+                            </div>
+                    </div>
+                    <div id="opzioniContainer" class="col-lg-4" style="overflow:hidden;">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-gear fa-fw" style="cursor:pointer;" onclick="toggleOpzioni()"></i><span class="opzioni"> Opzioni</span>
+                            </div>
+                            <!-- /.panel-heading -->
+
+                            <div class="loading" style="visibility:hidden; z-index:103;">
+                                <div style="position:absolute; z-index:102; width:100%; height:100%; display:table;">
+                                    <div style="display:table-cell; vertical-align:middle; text-align:center; font-size:large; font-weight:bold;">
+                                        <img src="img/loading.gif" /><br />
+                                        Attendere...
+                                    </div>
+                                </div>
+                                <div style="position:absolute; background-color:white; z-index:101; opacity:0.5; width:100%; height:90%;">
+                                </div>
+                            </div>
+                            <div  class="panel-body opzioni">
+                                <div class="list-group">
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-folder fa-fw"></i> Visualizzazione
+                                        <span class="text-muted small">
+                                            <select id="ddlTipo" class="form-control options-control" onchange="confrontoChanged()">
+                                                <option value="0" selected="selected">Mostra tutto</option>
+                                                <option value="1">Generi</option>
+                                                <option value="2">Registi</option>
+                                                <option value="3">Scrittori</option>
+                                                <option value="4">Case di produzione</option>
+                                                <option value="5">Paesi</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item selettore" style="display:none;">
+                                        <i class="fa fa-tag fa-fw"></i> A
+                                        <span class="text-muted small">
+                                            <select id="select1" class="form-control options-control"></select>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item selettore" style="display:none;">
+                                        <i class="fa fa-tag fa-fw"></i> B
+                                        <span class="text-muted small">
+                                            <select id="select2" class="form-control options-control"></select>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-certificate fa-fw"></i> Valori
+                                        <span class="pull-right text-muted small">
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioPercent1" type="radio" class="option-input radio" name="percent" checked="checked" />&nbsp;
+                                                <label for="radioPercent1">Assoluti</label>
+                                            </span>
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioPercent2" type="radio" class="option-input radio" name="percent" />&nbsp;
+                                                <label for="radioPercent2">Percentuali</label>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-bar-chart-o fa-fw"></i> Barre
+                                        <span class="pull-right text-muted small">
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioAffianca1" type="radio" class="option-input radio" name="affianca" checked="checked" />&nbsp;
+                                                <label for="radioAffianca1">Impilate</label>
+                                            </span>
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioAffianca2" type="radio" class="option-input radio" name="affianca" />&nbsp;
+                                                <label for="radioAffianca2">Affiancate</label>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-tasks fa-fw"></i> Dettagli fallimento
+                                        <span class="pull-right text-muted small">
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioRaggruppaFail1" type="radio" class="option-input radio" name="fail" checked="checked" />&nbsp;
+                                                <label for="radioRaggruppaFail1">Sì</label>
+                                            </span>
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioRaggruppaFail2" type="radio" class="option-input radio" name="fail" />&nbsp;
+                                                <label for="radioRaggruppaFail2">No</label>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-calendar fa-fw"></i> Filtra anni
+                                        <span class="pull-right text-muted small" style="white-space:nowrap">
+                                            Da <input type="number" id="txtFiltroAnno1" value="1892" class="form-control options-control" style="width:80px;" pattern="[0-9]*" />
+                                               A <input type="number" id="txtFiltroAnno2" value="2018" class="form-control options-control" style="width:80px;" pattern="[0-9]*" />
+                                            </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-calendar fa-fw"></i> Raggruppa anni
+                                        <span class="pull-right text-muted small">
+                                            <input type="number" id="txtAnno" value="1" class="form-control options-control" style="width:80px;" pattern="[0-9]*" />
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-font fa-fw"></i> Tooltip
+                                        <span class="pull-right text-muted small">
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioTooltip1" type="radio" class="option-input radio" name="tooltip" checked="checked" />&nbsp;
+                                                <label for="radioTooltip1">Sì</label>
+                                            </span>
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioTooltip2" type="radio" class="option-input radio" name="tooltip" />&nbsp;
+                                                <label for="radioTooltip2">No</label>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- /.list-group -->
+                                <a class="btn btn-default btn-block" onclick="aggiornaGrafico()">Aggiorna</a>
+                                <a class="btn btn-default btn-block" onclick="centra()">Centra</a>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <div id="tooltip" class="tooltip" style="display:none;">
+
+        </div>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/startmin.js"></script>
+    <script src="js/reader.js"></script>
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/StackedBarChart.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            var container = document.getElementById("container");
+            graph = new stackedBarChart(container);
+
+            aggiornaOpzioni();
+            graph.start();
+        });
+
+
+        function confrontoChanged() {
+            startLoading();
+
+            var value = getTipo();
+
+            $(".selettore").css("display", value == 0 ? "none" : "")
+
+            var txt = "";
+            switch (value) {
+                case 0:
+                    stopLoading();
+                    break;
+                case 1:
+                    txt = "generi";
+                    var minimumNumberOfMovies = 1;
+                    var movieFileName = "docs/movies.csv";
+                    var movieFK = "genres_id";
+                    var itemFileName = "docs/genres.csv";
+                    var itemPK = "id";
+                    readItems(movieFileName, movieFK, itemFileName, itemPK, minimumNumberOfMovies, setDDLitems);
+                    break;
+                case 2:
+                    var minimumNumberOfMovies = 5;
+                    txt = "registi<sup><a class='note' title='Sono mostrati solo quelli con almeno " + minimumNumberOfMovies + " film'>i</a></sup>";
+
+                    var movieFileName = "docs/movies.csv";
+                    var movieFK = "directors_id";
+                    var itemFileName = "docs/people.csv";
+                    var itemPK = "id";
+                    readItems(movieFileName, movieFK, itemFileName, itemPK, minimumNumberOfMovies, setDDLitems);
+                    break;
+                case 3:
+                    var minimumNumberOfMovies = 5;
+                    txt = "scrittori<sup><a class='note' title='Sono mostrati solo quelli con almeno " + minimumNumberOfMovies + " film'>i</a></sup>";
+
+                    var movieFileName = "docs/movies.csv";
+                    var movieFK = "writers_id";
+                    var itemFileName = "docs/people.csv";
+                    var itemPK = "id";
+                    readItems(movieFileName, movieFK, itemFileName, itemPK, minimumNumberOfMovies, setDDLitems);
+                    break;
+                case 4:
+                    var minimumNumberOfMovies = 5;
+                    txt = "case di produzione<sup><a class='note' title='Sono mostrate solo quelle con almeno " + minimumNumberOfMovies + " film'>i</a></sup>";
+
+                    var movieFileName = "docs/movies.csv";
+                    var movieFK = "companies_id";
+                    var itemFileName = "docs/companies.csv";
+                    var itemPK = "id";
+                    readItems(movieFileName, movieFK, itemFileName, itemPK, minimumNumberOfMovies, setDDLitems);
+                    break;
+                case 5:
+                    var minimumNumberOfMovies = 5;
+                    txt = "paesi<sup><a class='note' title='Sono mostrati solo quelli con almeno " + minimumNumberOfMovies + " film'>i</a></sup>";
+
+                    var movieFileName = "docs/movies.csv";
+                    var movieFK = "countries_id";
+                    var itemFileName = "docs/countries.csv";
+                    var itemPK = "id";
+                    readItems(movieFileName, movieFK, itemFileName, itemPK, minimumNumberOfMovies, setDDLitems);
+                    break;
+            }
+
+        }
+
+        function setDDLitems(items) {
+            var select1 = document.getElementById("select1");
+            var select2 = document.getElementById("select2");
+            select1.innerHTML = "";
+            select2.innerHTML = "";
+            items.forEach(function (item, index) {
+                var option1 = document.createElement("option");
+                var option2 = document.createElement("option");
+
+                option1.value = item.id;
+                option2.value = item.id;
+                option1.innerHTML = item.name + " (" + item.tot + ")";
+                option2.innerHTML = option1.innerHTML;
+
+                select1.appendChild(option1);
+                select2.appendChild(option2);
+            });
+            stopLoading();
+        }
+        function startLoading() {
+            $(".loading").css("visibility", "");
+        }
+
+        function stopLoading() {
+            $(".loading").css("visibility", "hidden");
+        }
+        function getTipo() {
+            var ddl = document.getElementById("ddlTipo");
+            var value = +ddl.value;
+            return value;
+        }
+
+        function getPercentuale() {
+            var radio1 = document.getElementById("radioPercent1");
+            var radio2 = document.getElementById("radioPercent2");
+            return radio2.checked;
+        }
+
+        function getAffianca() {
+            var radio1 = document.getElementById("radioAffianca1");
+            var radio2 = document.getElementById("radioAffianca2");
+            return radio2.checked;
+        }
+
+        function getTooltip() {
+            var radio1 = document.getElementById("radioTooltip1");
+            var radio2 = document.getElementById("radioTooltip2");
+            return radio1.checked;
+        }
+
+        function getSelezione() {
+            var select1 = document.getElementById("select1");
+            var select2 = document.getElementById("select2");
+            var value1 = select1.value;
+            var value2 = select2.value;
+            return [value1, value2];
+        }
+
+        function getFiltroAnno() {
+            var txt1 = document.getElementById("txtFiltroAnno1");
+            var txt2 = document.getElementById("txtFiltroAnno2");
+            var value1 = +txt1.value;
+            var value2 = +txt2.value;
+            return [value1, value2];
+        }
+
+        function getRaggruppaFail() {
+            var radio1 = document.getElementById("radioRaggruppaFail1");
+            var radio2 = document.getElementById("radioRaggruppaFail2");
+            return radio2.checked;
+        }
+
+        function getRaggruppaAnno() {
+            var txt = document.getElementById("txtAnno");
+            return +txt.value;
+        }
+        function aggiornaOpzioni() {
+            var options = {
+                "tipoVisualizzazione": getTipo(),
+                "percentuale": getPercentuale(),
+                "raggruppaFail": getRaggruppaFail(),
+                "raggruppaAnno": getRaggruppaAnno(),
+                "tooltip": getTooltip(),
+                "selezione": getSelezione(),
+                "affianca": getAffianca(),
+                "filtroAnno" : getFiltroAnno()
+            }
+            graph.setOptions(options);
+        }
+
+        function aggiornaGrafico() {
+            var txtAnno = document.getElementById("txtAnno");
+            var txtFiltroAnno1 = document.getElementById("txtFiltroAnno1");
+            var txtFiltroAnno2 = document.getElementById("txtFiltroAnno2");
+            if (isNaN(txtAnno.value) || +txtAnno.value < 1) {
+                txtAnno.value = 1;
+            }
+            if (isNaN(txtFiltroAnno1.value) || +txtFiltroAnno1.value < 1892 || +txtFiltroAnno1.value > 2018) {
+                txtFiltroAnno1.value = 1892;
+            }
+            if (isNaN(txtFiltroAnno2.value) || +txtFiltroAnno2.value < 1892 || +txtFiltroAnno2.value > 2018) {
+                txtFiltroAnno2.value = 2018;
+            }
+
+            if (+txtFiltroAnno2.value > +txtFiltroAnno2.value) {
+                var temp = txtFiltroAnno1.value;
+                txtFiltroAnno1.value = txtFiltroAnno2.value;
+                txtFiltroAnno2.value = txtFiltroAnno1.value;
+            }
+
+            aggiornaOpzioni();
+            graph.update();
+        }
+
+        function nascondiOpzioni() {
+            $(".opzioni").animate({ opacity: '0' }, 250, function () {
+                $(".opzioni").css("display", "none");
+                $("#opzioniContainer").removeClass("col-lg-4");
+                $("#opzioniContainer").addClass("col-lg-1");
+                $("#content").removeClass("col-lg-8");
+                $("#content").addClass("col-lg-11");
+            });
+
+        }
+
+        function mostraOpzioni() {
+            $(".opzioni").css("display", "");
+            $("#opzioniContainer").addClass("col-lg-4");
+            $("#opzioniContainer").removeClass("col-lg-1");
+            $("#content").addClass("col-lg-8");
+            $("#content").removeClass("col-lg-11");
+            $(".opzioni").animate({ opacity: '1' }, 250, function () {
+            });
+        }
+
+        function toggleOpzioni() {
+            if ($("#opzioniContainer").hasClass("col-lg-1")) {
+                mostraOpzioni();
+            } else {
+                nascondiOpzioni();
+            }
+        }
+
+        function centra() {
+            graph.resetZoom();
+        }
+    </script>
+</body>
+</html>

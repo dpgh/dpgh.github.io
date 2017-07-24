@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bechdel Test - Dati</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .options-control {
+            padding:3px 3px; height:unset;display:inline;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Bechdel Test</a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Top Navigation: Left Menu -->
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+            </ul>
+            <!-- Top Navigation: Right Menu -->
+            <ul class="nav navbar-right navbar-top-links">
+                <!--<li class="dropdown navbar-inverse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+            <!-- Sidebar -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            <li>
+                                <a  href="bar.html"><i class="fa fa-bar-chart-o fa-fw"></i> Grafico a barre</a>
+                            </li>
+                            <li>
+                                <a href="scatter.html"><i class="fa fa-dot-circle-o fa-fw"></i> Grafico di dispersione</a>
+                            </li>
+                            <li>
+                                <a class="active"  href="table.html"><i class="fa fa-table fa-fw"></i> Dati</a>
+                            </li>
+                            <li>
+                                <a href="info.html"><i class="fa fa-info fa-fw"></i> Informazioni</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Dati</h1>
+                    </div>
+                </div>
+                <!-- ... Your content goes here ... -->
+                <div class="row">
+                    <div  class="col-lg-12">
+                        <div id="content" class="table-responsive">
+                            </div>
+                    </div>
+                    <!--<div id="opzioniContainer" class="col-lg-4">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-gear fa-fw" style="cursor:pointer;" onclick="toggleOpzioni()"></i><span class="opzioni"> Opzioni</span>
+                            </div>
+                            <div class="loading" style="visibility:hidden; z-index:103;">
+                                <div style="position:absolute; z-index:102; width:100%; height:100%; display:table;">
+                                    <div style="display:table-cell; vertical-align:middle; text-align:center; font-size:large; font-weight:bold;">
+                                        <img src="img/loading.gif" /><br />
+                                        Attendere...
+                                    </div>
+                                </div>
+                                <div style="position:absolute; background-color:white; z-index:101; opacity:0.5; width:100%; height:90%;">
+                                </div>
+                            </div>
+                            <div  class="panel-body opzioni">
+                                <div class="list-group">
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-folder fa-fw"></i> Visualizzazione
+                                        <span class="pull-right text-muted small">
+                                            <select id="ddlTipo" class="form-control options-control" onchange="confrontoChanged()">
+                                                <option value="0" selected="selected">Mostra tutto</option>
+                                                <option value="1">Generi</option>
+                                                <option value="2">Registi</option>
+                                                <option value="3">Scrittori</option>
+                                                <option value="4">Case di produzione</option>
+                                                <option value="5">Paesi</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item selettore" style="display:none;">
+                                        <i class="fa fa-tag fa-fw"></i> A
+                                        <span class="pull-right text-muted small">
+                                            <select id="select1" class="form-control options-control"></select>
+                                        </span>
+                                    </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-calendar fa-fw"></i> Filtra anni
+                                        <span class="pull-right text-muted small" style="white-space:nowrap">
+                                            Da <input type="number" id="txtFiltroAnno1" value="1892" class="form-control options-control" style="width:80px;" pattern="[0-9]*" />
+                                               A <input type="number" id="txtFiltroAnno2" value="2018" class="form-control options-control" style="width:80px;" pattern="[0-9]*" />
+                                            </span>
+                                    </div>
+                                </div>
+                                <a class="btn btn-default btn-block" onclick="aggiornaGrafico()">Aggiorna</a>
+                            </div>
+                        </div>
+                    </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/startmin.js"></script>
+    <script src="js/reader.js"></script>
+    <script src="js/d3.v4.min.js"></script>
+
+    <script>
+
+        var tabulate = function (data,columns) {
+            var table = d3.select('#content').append('table');
+            table.attr("class", "table table-bordered table-hover table-striped");
+            table.attr("id", "table1");
+            var thead = table.append('thead');
+            var tbody = table.append('tbody');
+
+            thead.append('tr')
+              .selectAll('th')
+                .data(columns)
+                .enter()
+              .append('th')
+                .text(function (d) { return d })
+
+            var rows = tbody.selectAll('tr')
+                .data(data)
+                .enter()
+              .append('tr')
+
+            var cells = rows.selectAll('td')
+                .data(function(row) {
+                    return columns.map(function (column) {
+                        return { column: column, value: row[column] }
+                    })
+                })
+              .enter()
+            .append('td')
+              .text(function (d) { return d.value })
+
+            return table;
+        }
+
+        $(document).ready(function () {
+            d3.csv("docs/movies.csv", function (data) {
+                var genre = getParameterByName("genre");
+                var year = getParameterByName("year");
+                var company = getParameterByName("company");
+                var writer = getParameterByName("writer");
+                var director = getParameterByName("director");
+                var country = getParameterByName("country");
+                data = data.filter(function (a, b) {
+
+                    var filter = true;
+
+                    if (genre != null) {
+                        filter = filter && a.genres_id.split(" ").indexOf(genre) > -1;
+                    }
+                    if (year != null) {
+                        if (year.indexOf("-") > -1) {
+                            var years = year.split(" - ");
+                            filter = filter && +a.year >= +years[0] && +a.year <= +years[1];
+                        } else {
+                            filter = filter && +a.year == +year;
+                        }
+                    }
+                    if (company != null) {
+                        filter = filter && a.companies_id.split(" ").indexOf(company) > -1;
+                    }
+                    if (writer != null) {
+                        filter = filter && a.writers_id.split(" ").indexOf(writer) > -1;
+                    }
+                    if (director != null) {
+                        filter = filter && a.directors_id.split(" ").indexOf(director) > -1;
+                    }
+                    if (country != null) {
+                        filter = filter && a.countries_id.split(" ").indexOf(country) > -1;
+                    }
+
+                    return filter;
+                });
+                data.sort(function (a, b) { return d3.ascending(a.title, b.title); });
+                data.forEach(function (item, index) {
+                    item.Titolo = item.title;
+                    item.Anno = item.year;
+                    item.Voto = item.vote_average;
+                    item.Budget = item.budget;
+                    item.Incassi = item.revenue;
+                    item.Paese = item.countries_id;
+                    item.Test = item.test;
+                    item.Esito = item.binary;
+                    delete item.title;
+                    delete item.year;
+                    delete item.vote_average;
+                    delete item.budget;
+                    delete item.revenue;
+                    delete item.countries_id;
+                    delete item.test;
+                    delete item.binary;
+                });
+
+                var columns = ["Titolo", "Anno", "Voto", "Budget", "Incassi", "Paese", "Test", "Esito"];
+                var table = tabulate(data, columns);
+            });
+
+        });
+
+
+        function nascondiOpzioni() {
+            $(".opzioni").animate({ opacity: '0' }, 250, function () {
+                $(".opzioni").css("display", "none");
+                $("#opzioniContainer").removeClass("col-lg-4");
+                $("#opzioniContainer").addClass("col-lg-1");
+                $("#content").removeClass("col-lg-8");
+                $("#content").addClass("col-lg-11");
+            });
+
+        }
+
+        function mostraOpzioni() {
+            $(".opzioni").css("display", "");
+            $("#opzioniContainer").addClass("col-lg-4");
+            $("#opzioniContainer").removeClass("col-lg-1");
+            $("#content").addClass("col-lg-8");
+            $("#content").removeClass("col-lg-11");
+            $(".opzioni").animate({ opacity: '1' }, 250, function () {
+            });
+        }
+
+        function toggleOpzioni() {
+            if ($("#opzioniContainer").hasClass("col-lg-1")) {
+                mostraOpzioni();
+            } else {
+                nascondiOpzioni();
+            }
+        }
+
+        function sortTable(n, ascending) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("table1");
+            switching = true;
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1) ; i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    //check if the two rows should switch place:
+                    if ((ascending && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) || (!ascending && x.innerHTML.toLowerCase() <= y.innerHTML.toLowerCase())) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,787 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bechdel Test - Informazioni</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .updatePanel {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Bechdel Test</a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Top Navigation: Left Menu -->
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+            </ul>
+            <!-- Top Navigation: Right Menu -->
+            <ul class="nav navbar-right navbar-top-links">
+                <!--<li class="dropdown navbar-inverse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+            <!-- Sidebar -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            <li>
+                                <a href="bar.html"><i class="fa fa-bar-chart-o fa-fw"></i> Grafico a barre</a>
+                            </li>
+                            <li>
+                                <a href="scatter.html"><i class="fa fa-dot-circle-o fa-fw"></i> Grafico di dispersione</a>
+                            </li>
+                            <li>
+                                <a href="table.html"><i class="fa fa-table fa-fw"></i> Dati</a>
+                            </li>
+                            <li>
+                                <a href="info.html"><i class="fa fa-info fa-fw"></i> Informazioni</a>
+                            </li>
+                            <!--<li>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Informazioni</h1>
+                    </div>
+                </div>
+                <!-- ... Your content goes here ... -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Estrazione dei dati</h2>
+                            Il sito web <a href="http://bechdeltest.com/">www.bechdeltest.com/</a> mette a disposizione delle API che permettono di richiedere l'esito del test per un determinato film. Tra le varie funzioni è stata utilizzata <i>getAllMovies</i> che restituisce un array JSON di tutti i film disponibili sul sito. 
+                        <br />L'attributo <i>rating</i> indica se il film passa il test (3) o, qualora non lo passi, specifica la condizione che non soddisfa (0, 1 o 2).
+                            <br />
+                            <br />
+                            Il dataset è stato convertito da formato JSON a tabella CSV con un tool reperito sul web.
+                            <br />
+                            <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <strong>movies.json</strong>
+                        <br />
+                        <img src="img/info1.png" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="5">
+                                            movies.csv (1)
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            imdbid
+                                        </th>
+                                        <th>
+                                            title
+                                        </th>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            year
+                                        </th>
+                                        <th>
+                                            rating
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0000003</td>
+                                        <td>Pauvre Pierrot</td>
+                                        <td>5433</td>
+                                        <td>1892</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0132134</td>
+                                        <td>Execution of Mary, Queen of Scots, The</td>
+                                        <td>6200</td>
+                                        <td>1895</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                        <td>&hellip;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                            Per sopperire alla mancanza di informazioni sui film nella prima versione del dataset, è stata utilizzata l'API di <a href="https://www.themoviedb.org/documentation/api/">www.themoviedb.org</a> che accoglie chiamate HTTP GET e restituisce informazioni sotto forma di oggetti JSON.
+                        <br />
+                            <br />
+                            Per ogni film dell'elenco sono stati necessari tre passaggi:
+                        <br />
+                        <br />
+                            <ol>
+                                <li>
+                                    Utilizzo della funzione <i>find/{external_id}</i> per convertire l'id che il film ha su IMDb nel corrispettivo id utilizzato da themoviedb.org
+                                </li>
+                                <li>
+                                    Utilizzo della funzione <i>movie/{movie_id}</i> per ottenere le informazioni del film corrispondente all'id passato come parametro
+                                </li>
+                                <li>
+                                    Utilizzo della funzione <i>movie/{movie_id}/credits</i> per ottenere gli id di registi e scrittori relativi al film
+                                </li>
+                            </ol>
+                            Al termine dell'estrazione il dataset ha la seguente forma (i valori dell'attributo <i>rating</i> 0-3 sono stati convertiti in MEN, NOWOMEN, NOTALK e PASS.)
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="18">
+                                            movies.csv (2)
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            imdbId
+                                        </th>
+                                        <th>
+                                            title
+                                        </th>
+                                        <th>
+                                            release_date
+                                        </th>
+                                        <th>
+                                            original_language
+                                        </th>
+                                        <th>
+                                            vote_average
+                                        </th>
+                                        <th>
+                                            vote_count
+                                        </th>
+                                        <th>
+                                            budget
+                                        </th>
+                                        <th>
+                                            revenue
+                                        </th>
+                                        <th>
+                                            runtime
+                                        </th>
+                                        <th>
+                                            genres_id
+                                        </th>
+                                        <th>
+                                            countries_id
+                                        </th>
+                                        <th>
+                                            companies_id
+                                        </th>
+                                        <th>
+                                            year
+                                        </th>
+                                        <th>
+                                            test
+                                        </th>
+                                        <th>
+                                            binary
+                                        </th>
+                                        <th>
+                                            directors_id
+                                        </th>
+                                        <th>
+                                            writers_id
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            76341
+                                        </td>
+                                        <td>
+                                            tt1392190
+                                        </td>
+                                        <td>
+                                            Mad Max: Fury Road
+                                        </td>
+                                        <td>
+                                            13/05/2015
+                                        </td>
+                                        <td>
+                                            en
+                                        </td>
+                                        <td>
+                                            7.2
+                                        </td>
+                                        <td>
+                                            8602
+                                        </td>
+                                        <td>
+                                            150000000
+                                        </td>
+                                        <td>
+                                            378858340
+                                        </td>
+                                        <td>
+                                            120
+                                        </td>
+                                        <td>
+                                            28 12 878 53
+                                        </td>
+                                        <td>
+                                            AU US
+                                        </td>
+                                        <td>
+                                            79 2537 6194
+                                        </td>
+                                        <td>
+                                            2015
+                                        </td>
+                                        <td>
+                                            pass
+                                        </td>
+                                        <td>
+                                            PASS
+                                        </td>
+                                        <td>
+                                            20629
+                                        </td>
+                                        <td>
+                                            20629 1027146 1468313
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>36685</td>
+                                        <td>tt0073629</td>
+                                        <td>The Rocky Horror Picture Show</td>
+                                        <td>14/08/1975</td>
+                                        <td>
+                                            en
+                                        </td>
+                                        <td>7.3</td>
+                                        <td>609</td>
+                                        <td>1200000</td>
+                                        <td>112892319</td>
+                                        <td>100</td>
+                                        <td>35 27 10402 878</td>
+                                        <td>GB US</td>
+                                        <td>306 463</td>
+                                        <td>1975</td>
+                                        <td>pass</td>
+                                        <td>PASS</td>
+                                        <td>13484</td>
+                                        <td>13484 13474</td>
+                                    </tr>
+                                    <tr>
+
+
+                                        <td>
+                                            762
+                                        </td>
+                                        <td>tt0071853</td>
+                                        <td>Monty Python and the Holy Grail</td>
+                                        <td>13/03/1975</td>
+                                        <td>en</td>
+                                        <td>7.7</td>
+                                        <td>1574</td>
+                                        <td>400000</td>
+                                        <td>5028948</td>
+                                        <td>91</td>
+                                        <td>12 35 14</td>
+                                        <td>GB</td>
+                                        <td>416 463 464 465</td>
+                                        <td>1975</td>
+                                        <td>men</td>
+                                        <td>FAIL</td>
+                                        <td>280 10707</td>
+                                        <td>10722 8930 10713 280 10707 383</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br />
+                        Sebbene al posto delle colonne <i>genres_id</i>, <i>
+                            countries_id
+                        </i>, <i>
+                            companies_id
+                        </i>, <i>
+                            directors_id
+                        </i>, <i>
+                            writers_id
+                        </i>, le quali contengono molteplici id separati da spazio, sarebbe stato più corretto utilizzare delle tabelle ausiliarie del tipo <i>
+    [movie_id, genre_id]
+</i>, <i>
+    [movie_id, country_id]
+</i>, ecc., è stato notato che durante la costruzione e interazione con i grafici, aprire più file e incrociare i dati comportava un notevole rallentamento.
+    <br />
+    <br />
+    Successivamente sono state utilizzate le funzioni della API <i>genre/movie/list</i>, <i>company/{company_id}</i> e <i>person/{person_id}</i> per ottenere i nomi di generi, case di produzione, registi e scrittori associati agli id contenuti nella tabella precedente.
+</div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">
+                                            companies.csv
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            name
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            13877
+                                        </td>
+                                        <td>
+                                            Ortus Films
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">
+                                            countries.csv
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            name
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            IE
+                                        </td>
+                                        <td>
+                                            Ireland
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">
+                                            genres.csv
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            name
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>35</td>
+                                        <td>
+                                            Comedy
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">
+                                            people.csv
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            name
+                                        </th>
+                                        <th>
+                                            gender
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            13848
+                                        </td>
+                                        <td>
+                                            Charlie Chaplin
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                        <td>
+                                            &hellip;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        Il processo di estrazione dei dati da www.themoviedb.org è stato svolto in maniera automatica da una applicazione scritta in Visual Basic appositamente per questo compito ed eseguita da console. L'unica accortezza da osservare è stata rispettare il vincolo della API di inviare un massimo di 40 richieste ogni 10 secondi. 
+                        <br />
+                        <br />
+                        Alcuni film che comparivano nel dataset scaricato da www.bechdeltest.com non compaiono nel dataset finale ove non è stato possibile recuperare le informazioni da www.themoviedb.org.
+                        I dati disponibili sono quindi:
+                        <br /><br />
+                        <ul>
+                            <li>
+                                7204 film (partendo dai 7292 di www.bechdeltest.com)
+                            </li>
+                            <li>
+                                100 paesi
+                            </li>
+                            <li>
+                                20 generi di film
+                            </li>
+                            <li>
+                                8182 persone (registi e scrittori)
+                            </li>
+                        </ul>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Utilizzo dei dati</h2>
+                        <h3>
+                            Grafico a barre
+                        </h3>
+                        Per quanto riguarda il grafico a barre, i dati sono aggregati in base al loro anno di uscita con la funzione <i>d3.nest()</i>.
+                        Durante l'aggregazione vengono contati i film per ogni valore possibile dell'attributo <i>test</i> (PASS, MEN, NOTALK, NOWOMEN).
+                        In base alla configurazione scelta dall'utente, le seguenti operazioni possono essere svolte sui dati:
+                        <br />
+                        <br />
+                        <ul>
+                            <li>
+                                Conversione dei contatori da valori assoluti a percentuali
+                            </li>
+                            <li>
+                                Mappatura dei valori MEN, NOTALK e NOWOMEN nel nuovo valore FAIL per raccogliere tutti i film che non passano il test sotto un'unica categoria
+                            </li>
+                            <li>
+                                Filtraggio dei dati in base al loro anno di uscita, genere di appartenenza, casa di produzione, ecc.
+                            </li>
+                        </ul>
+                        Il risultato è un'array di oggetti JSON, ognuno dei quali è identificato da un anno e contiene il numero dei film per ogni valore di <i>test</i>.
+                        <br /><br />
+                        Poiché l'aggregazione avviene per anno, è stato necessario scartare i film per cui l'informazione non fosse disponibile, ovvero 6 record.
+                        <h3>
+                            Grafico a dispersione
+                        </h3>
+                        Nel caso del grafico a dispersione non è necessario aggregare i dati. Gli attributi <i>revenue</i> e <i>vote_average</i> sono utilizzati rispettivamente come coordinate x e y di un grafico cartesiano.
+                        <br />
+                        Anche qui i dati possono essere filtrati e mappati come avviene per il grafico a barre.
+                        <br /><br />
+                        In questo caso è stato necessario scartare tutti i film che non riportano informazioni su <i>revenue</i> e <i>vote_average</i>, ovvero 3641 record.
+                    </div>
+                </div>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/startmin.js"></script>
+</body>
+</html>
