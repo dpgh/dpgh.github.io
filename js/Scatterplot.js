@@ -10,7 +10,8 @@
         "tooltip": true,
         "selezione": null,
         "filtroAnno": null,
-        "allowPanZoom": true
+        "allowPanZoom": true,
+        "log": false
     }
 
     this.setOptions = function (opt) {
@@ -84,6 +85,8 @@
         .call(zoom.on("zoom", function () {
             if (options.allowPanZoom) {
                 svg.attr("transform", d3.event.transform);
+                
+                d3.selectAll(".dot").attr("r", 3.5/d3.event.transform.k)
             }
         }))
           .append("g")
@@ -92,9 +95,16 @@
         width = width - margin.left - margin.right;
         height = height - margin.top - margin.bottom
 
-        var xValue = function (d) { return d.revenue; }, // data -> value
-            xScale = d3.scaleLinear().range([0, width]), // value -> display
-            xMap = function (d) { return xScale(xValue(d)); }, // data -> display
+        var xValue = function (d) { return d.revenue; }; // data -> value
+        if (options.log) {
+            xScale = d3.scaleLog().range([0, width]);// value -> display
+        } else {
+
+            xScale = d3.scaleLinear().range([0, width]);// value -> display
+        }
+            xMap = function (d) {
+                return xScale(xValue(d));
+            }, // data -> display
         xAxis = d3.axisBottom(xScale);
 
         var yValue = function (d) { return d.vote_average; }, // data -> value
@@ -123,14 +133,22 @@
                 d.vote_average = +d.vote_average;
             });
 
-            xScale.domain([d3.min(data, xValue) - 1, d3.max(data, xValue) + 1]);
+            xScale.domain([Math.max(d3.min(data, xValue) - 1, 1), d3.max(data, xValue) + 1]);
             yScale.domain([d3.min(data, yValue) - 1, d3.max(data, yValue) + 1]);
 
             // asse X
-            svg.append("g")
-                 .attr("class", "x axis")
-                 .attr("transform", "translate(0," + height + ")")
-                 .call(xAxis.ticks(10, "s")).append("text")
+            var hAxis =  svg.append("g")
+                  .attr("class", "xaxis")
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(xAxis.ticks(20, "s"));
+            hAxis.selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
+
+            hAxis.append("text")
                 .attr("class", "label")
                 .attr("x", width)
                 .attr("y", -6)
@@ -141,9 +159,10 @@
                 .attr("text-anchor", "start")
                 .text("Incassi");
 
+
             // asse Y
             svg.append("g")
-                .attr("class", "y axis")
+                .attr("class", "yaxis")
                 .call(yAxis)
               .append("text")
                 .attr("class", "label")
@@ -168,7 +187,7 @@
                     return color(cValue(d));
                 })
             .on("mouseover", function (d) {
-                $(this).attr("class", "highlight");
+                $(this).attr("class", "dot highlight");
                 $(this).off("click");
                 $(this).on("click", function () {
                     window.open(getUrl(d));
@@ -194,7 +213,7 @@
                 }
             })
         .on("mouseout", function (d) {
-            $(this).attr("class", "");
+            $(this).attr("class", "dot");
             var div = d3.select("#tooltip");
             div.transition()
                 .duration(500)
@@ -234,11 +253,23 @@
         s += "<tr><th>Anno&nbsp;&nbsp;</th><td>" + item.year + "</td></tr>";
         s += "<tr><th>Lingua&nbsp;&nbsp;</th><td>" + item.original_language + "</td></tr>";
         s += "<tr><th>Voto&nbsp;&nbsp;</th><td>" + item.vote_average + "/10</td></tr>";
-        s += "<tr><th>Budget&nbsp;&nbsp;</th><td>" + item.budget + " $</td></tr>";
-        s += "<tr><th>Incassi&nbsp;&nbsp;</th><td>" + item.revenue + " $</td></tr>";
+        s += "<tr><th>Budget&nbsp;&nbsp;</th><td>" + formatCurrency(item.budget) + " $</td></tr>";
+        s += "<tr><th>Incassi&nbsp;&nbsp;</th><td>" + formatCurrency(item.revenue) + " $</td></tr>";
         s += "<tr><th>Durata&nbsp;&nbsp;</th><td>" + item.runtime + " '</td></tr>";
         s += "</table>";
         return s;
+    }
+
+    function formatCurrency(value) {
+        value = value.toString().split("").reverse().join("");
+        var newValue = '';
+        for (var i = 0; i < value.length; i++) {
+            if (i % 3 == 0 && i!=0) {
+                newValue += '.';
+            }
+            newValue += value[i];
+        }
+        return newValue.split("").reverse().join("");
     }
 
 }
