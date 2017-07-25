@@ -118,18 +118,15 @@
 
         function callback(data) {
 
-            // change string (from CSV) into number format
             data.forEach(function (d) {
                 d.revenue = +d.revenue;
                 d.vote_average = +d.vote_average;
-                //    console.log(d);
             });
 
-            // don't want dots overlapping axis, so add in buffer to data domain
             xScale.domain([d3.min(data, xValue) - 1, d3.max(data, xValue) + 1]);
             yScale.domain([d3.min(data, yValue) - 1, d3.max(data, yValue) + 1]);
 
-            // x-axis
+            // asse X
             svg.append("g")
                  .attr("class", "x axis")
                  .attr("transform", "translate(0," + height + ")")
@@ -144,7 +141,7 @@
                 .attr("text-anchor", "start")
                 .text("Incassi");
 
-            // y-axis
+            // asse Y
             svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis)
@@ -159,7 +156,7 @@
                 .attr("font-weight", "bold")
                 .text("Voto");
 
-            // draw dots
+            // disegna i punti
             svg.selectAll(".dot")
                 .data(data)
               .enter().append("circle")
@@ -205,21 +202,19 @@
             div.style("display", "none")
         })
 
-            // draw legend
+            // legenda
             var legend = svg.selectAll(".legend")
                 .data(color.domain())
               .enter().append("g")
                 .attr("class", "legend")
                 .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
 
-            // draw legend colored rectangles
             legend.append("rect")
                 .attr("x", width - 18)
                 .attr("width", 18)
                 .attr("height", 18)
                 .style("fill", color);
 
-            // draw legend text
             legend.append("text")
                 .attr("x", width - 24)
                 .attr("y", 9)
