@@ -526,7 +526,7 @@
                             </table>
                         </div>
                         <br />
-                        Sebbene al posto delle colonne <i>genres_id</i>, <i>
+                        Al posto delle colonne <i>genres_id</i>, <i>
                             countries_id
                         </i>, <i>
                             companies_id
@@ -538,7 +538,7 @@
     [movie_id, genre_id]
 </i>, <i>
     [movie_id, country_id]
-</i>, ecc., è stato notato che durante la costruzione e interazione con i grafici, aprire più file e incrociare i dati comportava un notevole rallentamento.
+</i>, ecc. Tuttavia è stato notato che, durante la costruzione e interazione con i grafici, aprire più file e incrociare i dati comportava un notevole rallentamento.
     <br />
     <br />
     Successivamente sono state utilizzate le funzioni della API <i>genre/movie/list</i>, <i>company/{company_id}</i> e <i>person/{person_id}</i> per ottenere i nomi di generi, case di produzione, registi e scrittori associati agli id contenuti nella tabella precedente.
@@ -713,7 +713,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        Il processo di estrazione dei dati da www.themoviedb.org è stato svolto in maniera automatica da una applicazione scritta in Visual Basic appositamente per questo compito ed eseguita da console. L'unica accortezza da osservare è stata rispettare il vincolo della API di inviare un massimo di 40 richieste ogni 10 secondi. 
+                        Il processo di estrazione dei dati da www.themoviedb.org è stato svolto in maniera automatica da una applicazione scritta in Visual Basic appositamente per questo compito ed eseguita da console. L'unica accortezza è stata rispettare il vincolo della API di inviare un massimo di 40 richieste ogni 10 secondi. 
                         <br />
                         <br />
                         Alcuni film che comparivano nel dataset scaricato da www.bechdeltest.com non compaiono nel dataset finale ove non è stato possibile recuperare le informazioni da www.themoviedb.org.
