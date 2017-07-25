@@ -221,6 +221,19 @@
                                             </span>
                                         </span>
                                     </div>
+                                    <div href="#" class="list-group-item">
+                                        <i class="fa fa-font fa-fw"></i> Scala
+                                        <span class="pull-right text-muted small">
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioLog1" type="radio" class="option-input radio" name="log" checked="checked" />&nbsp;
+                                                <label for="radioLog1">Lineare</label>
+                                            </span>
+                                            <span style="white-space:nowrap;">
+                                                <input id="radioLog2" type="radio" class="option-input radio" name="log" />&nbsp;
+                                                <label for="radioLog2">Logaritmica</label>
+                                            </span>
+                                        </span>
+                                    </div>
                                 </div>
                                 <!-- /.list-group -->
                                 <a class="btn btn-default btn-block" onclick="aggiornaGrafico()">Aggiorna</a>
@@ -373,13 +386,21 @@
             var radio2 = document.getElementById("radioRaggruppaFail2");
             return radio2.checked;
         }
+
+        function getLog() {
+            var radio1 = document.getElementById("radioLog1");
+            var radio2 = document.getElementById("radioLog2");
+            return radio2.checked;
+        }
+
         function aggiornaOpzioni() {
             var options = {
                 "tipoVisualizzazione": getTipo(),
                 "raggruppaFail": getRaggruppaFail(),
                 "tooltip": getTooltip(),
                 "selezione": getSelezione(),
-                "filtroAnno" : getFiltroAnno()
+                "filtroAnno" : getFiltroAnno(),
+                "log" : getLog()
             }
             plot.setOptions(options);
         }
