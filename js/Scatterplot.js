@@ -140,7 +140,7 @@
             var hAxis =  svg.append("g")
                   .attr("class", "xaxis")
                   .attr("transform", "translate(0," + height + ")")
-                  .call(xAxis.ticks(20, "s"));
+                  .call(xAxis.ticks(20,  options.log ? ".0s" : "s"));
             hAxis.selectAll("text")
     .attr("y", 0)
     .attr("x", 9)
